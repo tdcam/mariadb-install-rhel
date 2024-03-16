@@ -1,12 +1,11 @@
 ---
 - name: Tear DB Environment Down
-  hosts: db
+  hosts: all
   tasks:
     - name: remove MariaDB
       ansible.builtin.dnf:
         name: 
           - mariadb-server
-          - wordpress
         autoremove: true
         state: absent
     - name: remove firewall rules 3306
