@@ -23,6 +23,6 @@
         immediate: true
     - name: run a shell command to create the wordpress database
       ansible.builtin.shell:
-        cmd: mysql < wordpress.sql
+        cmd: mysql < /root/wordpress.sql
         chdir: /root
 
