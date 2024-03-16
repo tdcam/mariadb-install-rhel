@@ -1,6 +1,6 @@
 ---
 - name: Install MariaDB
-  hosts: db
+  hosts: all
   tasks:
     - name: install MariaDB Server
       ansible.builtin.dnf:
