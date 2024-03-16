@@ -6,7 +6,6 @@
       ansible.builtin.dnf:
         name: 
           - mariadb-server
-          - mlocate
         autoremove: true
         state: absent
     - name: remove firewall rules 3306
