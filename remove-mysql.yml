@@ -1,6 +1,6 @@
 ---
 - name: Tear DB Environment Down
-  hosts: all
+  hosts: db
   tasks:
     - name: remove MariaDB
       ansible.builtin.dnf:
