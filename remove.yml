@@ -1,0 +1,17 @@
+---
+- name: Tear DB Environment Down
+  hosts: db
+  tasks:
+    - name: remove MariaDB
+      ansible.builtin.dnf:
+        name: 
+          - mariadb-server
+          - mlocate
+        autoremove: true
+        state: absent
+    - name: remove firewall rules 3306
+      ansible.builtin.firewalld:
+        service: mysql
+        state: disabled
+        permanent: true
+        immediate: true
