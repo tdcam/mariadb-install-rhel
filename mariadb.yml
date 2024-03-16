@@ -7,6 +7,10 @@
         name: mariadb-server
         state: latest
     - name: start MariaDB
+    - name: create wordpress.sql in root's home directory
+      ansible.builtin.copy:
+        src: wordpress.sql
+        dest: /root/wordpress.sql
       ansible.builtin.service:
         name: mariadb
         state: started
@@ -17,3 +21,8 @@
         permanent: true
         state: enabled
         immediate: true
+    - name: run a shell command to create the wordpress database
+      ansible.builtin.shell:
+        cmd: mysql < wordpress.sql
+        chdir: /root
+
